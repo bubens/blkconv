@@ -1,2 +1,0 @@
-Version 0.0.0 (3-9-13 11:07pm)
-- initial version with very limited functionality
