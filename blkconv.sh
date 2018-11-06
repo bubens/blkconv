@@ -2,7 +2,12 @@
 
 TMPFOLDER="/tmp/bulkconvert_"$USER"_"$(date +%s);
 CURFOLDER=$(pwd)
-CURFOLDERNAME=${PWD##*/}
+# ${PWD##*/} -> current folder name without absolut path
+# sed -e 's[A-Za-z0-9 ]*//g' -> remove everything but letters, digits and whitespace
+# sed -e 's/ /_/g' -> replace all whitespace with underscores
+# EXAMPLE: /home/user/1. Introduction to Everything -> 1_Introduction_to_Everything
+CURFOLDERNAME=$(echo ${PWD##*/}|sed -e 's/[^A-Za-z0-9 ]*//g'|sed -e 's/ /_/g')
+
 
 documents=0
 folders=0
