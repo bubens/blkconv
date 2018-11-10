@@ -13,6 +13,15 @@ documents=0
 folders=0
 converted=0
 
+# Check if any instance of the LibreOffice Suite is already running.
+# Headless converting with LibreOffice won't work with an instance running.
+# See: https://bugs.documentfoundation.org/show_bug.cgi?id=37531&redirected_from=fdo
+if [ -n "$(pgrep soffice)" ]; then
+	echo "Detected a running instance of LibreOffice. Blkconv can't convert files with LibreOffice still running."
+	echo "Close LibreOffice window(s) and again."
+	exit 1
+fi
+
 # count documents that will be converted
 # will only count .od* files
 function count_documents {
