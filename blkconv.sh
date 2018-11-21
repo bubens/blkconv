@@ -18,7 +18,7 @@ converted=0
 # See: https://bugs.documentfoundation.org/show_bug.cgi?id=37531&redirected_from=fdo
 if [ -n "$(pgrep soffice)" ]; then
 	echo "Detected a running instance of LibreOffice. Blkconv can't convert files with LibreOffice still running."
-	echo "Close LibreOffice window(s) and again."
+	echo "Close LibreOffice window(s) and try again."
 	exit 1
 fi
 
